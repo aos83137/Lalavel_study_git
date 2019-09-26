@@ -51,12 +51,46 @@
 //     }
 // )-> where('rich','[0-9a-zA-Z!]{4}');
 
-Route::get('/',[
-    "as"=>'alias',
-    function(){
-    return '여는 다른라운팅인데 이름이 alias이야!';
-}]);
+// Route::get('/',[
+//     "as"=>'alias',
+//     function(){
+//     return '여는 다른라운팅인데 이름이 alias이야!';
+// }]);
 
-Route::get('/wdj',function(){
-    return redirect(route('alias'));
+// Route::get('/wdj',function(){
+//     return redirect(route('alias'));
+// });
+
+// Route::get(
+//     '/',
+//     function(){
+//         return view('errors.503');
+//     }
+// );
+
+// Routue::get(
+//     '/databind', 
+// function(){
+//     return view('yju-com') -> -=width;
+// }
+// );
+
+Route::get(
+    '/',     //요청 경로(URL), GET /
+    function () { //요청처리함수, 콜백, 클로저
+        return view('welcome'); //view(): 뷰객체를 만들어 응답
+                    //인자 : 뷰파일 지정
+                    //      resources/views/뷰파일명.blade.php
+                    //      resources/views/welcome.blade.php 생김
 });
+
+
+Route::get(
+    '/yju'
+,function() { //요청처리함수, 콜백, 클로저
+    $ss = ['딸기', '망고', '수박', '집','밥','먹','고','싶','다'];
+
+    return view('yjucom', ['items' => $ss]); //view(): 뷰객체를 만들어 응답
+
+}
+);
