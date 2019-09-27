@@ -11,5 +11,6 @@
 </head>
 <body>
     <H1>503 error....</H1>
+    <h1><?= isset($greeting) ? "{$greeting} " : 'Hello ' ; ?><?= $name; ?></h1>
 </body>
 </html>

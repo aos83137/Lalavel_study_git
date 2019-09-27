@@ -19,23 +19,31 @@
 
 // }
 // );
-Route::get(
-    '/',     //요청 경로(URL), GET /
-    function () { //요청처리함수, 콜백, 클로저
-        return view('welcome'); //view(): 뷰객체를 만들어 응답
-                    //인자 : 뷰파일 지정
-                    //      resources/views/뷰파일명.blade.php
-                    //      resources/views/welcome.blade.php 생김
-});
-
+// Route::get(
+//     '/',     //요청 경로(URL), GET /
+//     function () { //요청처리함수, 콜백, 클로저
+//         return view('errors.503')->with([
+//             'name' => 'Foo',
+//             'greeting' => '안녕하세요?',
+//         ]); 
+//         //view(): 뷰객체를 만들어 응답
+//                     //인자 : 뷰파일 지정
+//                     //      resources/views/뷰파일명.blade.php
+//                     //      resources/views/welcome.blade.php 생김
+// }); 
+//with 보다는 view의 두번째 인자로 보내는 것을 많이씀
 Route::get('/',
-        'as' => 'home',
-        function(){
-            return '제 이름은 "home" 입니다.';
-        });
-Route::get('/home', function(){
-    return redirect(route('home'));
-});
+    function(){
+        return view('errors.503', [
+            'name' => 'yongseok',
+            'greeting' => '안녕   하세요?',
+        ]);
+    });
+
+
+// Route::get('/',function(){
+//     return view('errors.503');
+// });
 // Route::get(
 //     '/yju'
 // ,function() { //요청처리함수, 콜백, 클로저
