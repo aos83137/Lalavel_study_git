@@ -34,9 +34,11 @@
 //with 보다는 view의 두번째 인자로 보내는 것을 많이씀
 Route::get('/',
     function(){
-        return view('errors.503', [
+        
+        return view('child', [
             'name' => 'yongseok',
             'greeting' => '안녕   하세요?',
+            'items' =>['딸기','망고','수박','등등']
         ]);
     });
 

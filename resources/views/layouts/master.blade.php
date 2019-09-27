@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    @yield('style')
-    
-    @yield('script')
-
-</head> 
+    <title>최상위 부모 콘텐츠</title>
+</head>
 <body>
-<h1>자식이여</h1>
-@yield('content')
-<h1>여기는 마스터 블레이드</h1>
-@yield('foot')
+    @yield('script')
+    @yield('style')
+    @yield('header')
+    @yield('content')
+    @yield('footer')
 </body>
 </html>
