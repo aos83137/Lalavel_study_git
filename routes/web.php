@@ -19,15 +19,23 @@
 
 // }
 // );
-// Route::get(
-//     '/',     //요청 경로(URL), GET /
-//     function () { //요청처리함수, 콜백, 클로저
-//         return view('welcome'); //view(): 뷰객체를 만들어 응답
-//                     //인자 : 뷰파일 지정
-//                     //      resources/views/뷰파일명.blade.php
-//                     //      resources/views/welcome.blade.php 생김
-// });
+Route::get(
+    '/',     //요청 경로(URL), GET /
+    function () { //요청처리함수, 콜백, 클로저
+        return view('welcome'); //view(): 뷰객체를 만들어 응답
+                    //인자 : 뷰파일 지정
+                    //      resources/views/뷰파일명.blade.php
+                    //      resources/views/welcome.blade.php 생김
+});
 
+Route::get('/',
+        'as' => 'home',
+        function(){
+            return '제 이름은 "home" 입니다.';
+        });
+Route::get('/home', function(){
+    return redirect(route('home'));
+});
 // Route::get(
 //     '/yju'
 // ,function() { //요청처리함수, 콜백, 클로저
@@ -75,22 +83,26 @@
 // }
 // );
 
-Route::get(
-    '/',     //요청 경로(URL), GET /
-    function () { //요청처리함수, 콜백, 클로저
-        return view('welcome'); //view(): 뷰객체를 만들어 응답
-                    //인자 : 뷰파일 지정
-                    //      resources/views/뷰파일명.blade.php
-                    //      resources/views/welcome.blade.php 생김
-});
+// Route::get(
+//     '/',     //요청 경로(URL), GET /
+//     function () { //요청처리함수, 콜백, 클로저
+//         return view('welcome'); //view(): 뷰객체를 만들어 응답
+//                     //인자 : 뷰파일 지정
+//                     //      resources/views/뷰파일명.blade.php
+//                     //      resources/views/welcome.blade.php 생김
+// });
 
 
-Route::get(
-    '/yju'
-,function() { //요청처리함수, 콜백, 클로저
-    $ss = ['딸기', '망고', '수박', '집','밥','먹','고','싶','다'];
+// Route::get(
+//     '/yju'
+// ,function() { //요청처리함수, 콜백, 클로저
+//     $ss = ['딸기', '망고', '수박', '집','밥','먹','고','싶','다'];
 
-    return view('yjucom', ['items' => $ss]); //view(): 뷰객체를 만들어 응답
+//     return view('yjucom', ['items' => $ss]); //view(): 뷰객체를 만들어 응답
 
-}
-);
+// }
+// );
+
+// Route::get('/yong',function(){
+//     return view('yong');
+// });

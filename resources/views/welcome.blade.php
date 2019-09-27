@@ -64,9 +64,8 @@
         </style>
     </head>
     <body>
-    <h1>안녕 라라벨!</h1>
-    <p>이곳이 뷰!</p>
-        <!-- <div class="flex-center position-ref full-height">
+        <h1>Hello Laravel</h1>
+        <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -97,6 +96,6 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
-        </div> -->
+        </div>
     </body>
 </html>
