@@ -42,7 +42,9 @@ Route::get('/',
         ]);
     });
 
-
+Route::get('/d3_test',function(){
+    return view('d3_test');
+});
 // Route::get('/',function(){
 //     return view('errors.503');
 // });
