@@ -118,3 +118,5 @@ Route::get('/d3_test',function(){
 // Route::get('/yong',function(){
 //     return view('yong');
 // });
+
+Route::resource('articles','ArticlesController');
