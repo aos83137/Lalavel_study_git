@@ -35,7 +35,7 @@
 Route::get('/',
     function(){
         
-        return view('child', [
+        return view('welcome', [
             'name' => 'yongseok',
             'greeting' => '안녕   하세요?',
             'items' =>['딸기','망고','수박','등등']
@@ -120,3 +120,40 @@ Route::get('/d3_test',function(){
 // });
 
 Route::resource('articles','ArticlesController');
+
+Route::get('auth/login', function(){
+    $credentials = [
+        'email' => 'john@example.com',
+        'password' => 'password'
+    ];
+
+    if(! auth() -> attempt($credentials)){//auth 인증 , attempt 시도
+        return '로그인 정보가정확하지 않습니다.';
+    }
+
+    return redirect('protected');
+});
+
+Route::get('protected', function(){
+    dump(session()-> all());
+    // if(!auth() -> check()){
+    //     return 'who are you?';
+    // }
+
+    return '어서 오세요'. auth()->user()->name;
+});
+
+Route::get('auth/logout', function(){
+    dump(session()-> all());
+    auth()->logout();
+
+    return '또 봐용~~';
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
