@@ -14,7 +14,11 @@ class ArticlesController extends Controller
     public function index()
     {
         //
-        return __METHOD__ . '은 Article컬렉션을 조회합니다.';
+        $articles = \App\User::latest()->paginate(3);
+
+        
+        return view('articles.index', compact('articles'));
+        // return __METHOD__ . '은 Article컬렉션을 조회합니다.';
     }
 
     /**
@@ -25,7 +29,8 @@ class ArticlesController extends Controller
     public function create()
     {
         //
-        return __METHOD__ .'은 Article 컬렉션을 만들기 위한 폼을 담은 뷰를 반환합니다.';
+        return view('articles.create');
+        // return __METHOD__ .'은 Article 컬렉션을 만들기 위한 폼을 담은 뷰를 반환합니다.';
     }
 
     /**

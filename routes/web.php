@@ -45,6 +45,10 @@ Route::get('/',
 Route::get('/d3_test',function(){
     return view('d3_test');
 });
+
+Route::get('/test', function(){
+    return view('test');
+});
 // Route::get('/',function(){
 //     return view('errors.503');
 // });
@@ -157,3 +161,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+DB::listen(function($query){//db에 대해서 listen 호출시 db에 일어나는 이벤트를 듣고 이 클로져(콜백함수를 php에서는 클로저라고 하더라)를 실행한다.
+                            // query변수에는 디비에서 발생한 이벤트의 쿼리(질의) 객체를 가짐.
+    var_dump($query->sql);
+});

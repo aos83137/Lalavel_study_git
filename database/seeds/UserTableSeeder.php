@@ -12,10 +12,21 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         //
-        App\User::create([
-            'name'=>sprintf('%s %s', str_random(3), str_random(4)),
-            'email'=>str_random(10) . '@example.com',
-            'password' => bcrypt('password'),
-        ]);
+        // App\User::create([
+        //     'name'=>sprintf('%s %s', Str::random(3), Str::random(4)),
+        //     //str_random()이거 헬퍼 함수인데 6.0에는 없음
+        //     'email'=>Str::random(10) . '@example.com',
+        //     'password' => bcrypt('password'),
+        // ]);
+
+        factory(App\User::class, 5)->create();
+        //이걸로 만들면 로그인을 못하느느 진짜 그냥 더미임
+        //그래서 밑에를 봐라
+        //php artisan make::factory 모델명 Factory --model=모델명
+        //database/factories/모델명Factory.; 생성됨
+
+        //php artisan make:factory UserFactory --model=User
+
+    
     }
 }
